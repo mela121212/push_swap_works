@@ -104,9 +104,20 @@ void	ft_putstr(char *str)
 /* Returns the absolute value of a number,ç
  which is the value without any sign consideration.*/
 
-int	abs(int nb)
+int	absolute_value(int nb)
 {
 	if (nb < 0)
 		return (nb * -1);
 	return (nb);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

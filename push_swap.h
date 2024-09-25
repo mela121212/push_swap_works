@@ -59,7 +59,7 @@ void		sort(t_stack **stack_a, t_stack **stack_b);
 void		get_target_position(t_stack **stack_a, t_stack **stack_b);
 void		cost(t_stack **stack_a, t_stack **stack_b);
 void		cheapest_move(t_stack **stack_a, t_stack **stack_b);
-int			abs(int nb);
+int			absolute_value(int nb);
 void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 int			position_lowest_index(t_stack **stack);
 char		**ft_split(char const *s, char c);

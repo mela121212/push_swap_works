@@ -12,20 +12,6 @@
 
 #include "push_swap.h"
 
-/*	Checks if a stack is sorted. 
-    Returns 0 if the stack is not sorted, 1 if it is sorted. */
-
-int	is_sorted(t_stack *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 /* Chooses a sorting method depending on the number of values to be sorted. */
 
 //Cuando sea dos y este ordenado? 
@@ -73,7 +59,7 @@ void	get_numbers(char *av, t_stack **stack_a)
    the stacks and exits.
    system("leaks push_swap");  */
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -83,9 +69,9 @@ int	main(int ac, char **av)
 	i = 1;
 	stack_b = NULL;
 	stack_a = NULL;
-	while (i < ac)
+	while (i < argc)
 	{
-		get_numbers(av[i], &stack_a);
+		get_numbers(argv[i], &stack_a);
 		i++;
 	}
 	if (is_duplicate(stack_a))
