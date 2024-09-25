@@ -45,29 +45,41 @@ void	stack_add(t_stack **stack, t_stack *new)
 		*stack = new;
 		return ;
 	}
-	bottom = get_bottom(*stack);
+	bottom = get_tail(*stack);
 	bottom->next = new;
 }
 
 /*	Returns the last element of the stack. */
 
-t_stack	*get_bottom(t_stack *stack)
+/*t_stack	*get_bottom(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
 	return (stack);
-}
+}*/
 
 /* Returns de element before the bottom element */
 
-t_stack	*before_bottom(t_stack *stack)
+/*t_stack	*before_bottom(t_stack *stack)
 {
 	while (stack && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
-}	
+}*/
 
-/*	Returns the number of elements in a stack. */
+t_stack *get_tail(t_stack *stack)
+{
+    while (stack != NULL && (stack)->next != NULL)
+        stack = (stack)->next;
+    return(stack);
+}
+
+t_stack *before_tail(t_stack *stack)
+{
+    while (stack != NULL && (stack)->next->next != NULL)
+        stack = (stack)->next;
+    return(stack);
+}
 
 int	get_stack_size(t_stack	*stack)
 {
