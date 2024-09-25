@@ -38,7 +38,7 @@ void		get_index(t_stack *stack_a, int stack_size);
 t_stack		*stack_new(int value);
 void		stack_add(t_stack **stack, t_stack *new);
 t_stack		*get_tail(t_stack *stack);
-int			get_stack_size(t_stack	*stack);
+int			stack_size(t_stack	*stack);
 int			is_sorted(t_stack *stack);
 void        sort_3(t_stack **stack_a);
 void        simple_sort(t_stack **stack_a, t_stack **stack_b, int size);

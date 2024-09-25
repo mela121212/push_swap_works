@@ -26,8 +26,8 @@ void	cost(t_stack **stack_a, t_stack **stack_b)
 
 	tmp_a = *stack_a;
 	tmp_b = *stack_b;
-	size_a = get_stack_size(tmp_a);
-	size_b = get_stack_size(tmp_b);
+	size_a = stack_size(tmp_a);
+	size_b = stack_size(tmp_b);
 	while (tmp_b)
 	{
 		tmp_b->cost_b = tmp_b->pos;

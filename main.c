@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		stack_size;
+	int		size;
 	int		i;
 
 	i = 1;
@@ -76,9 +76,9 @@ int	main(int argc, char **argv)
 	}
 	if (is_duplicate(stack_a))
 		error_exit(&stack_a, NULL);
-	stack_size = get_stack_size(stack_a);
-	get_index(stack_a, stack_size + 1);
-	push_swap(&stack_a, &stack_b, stack_size);
+	size = stack_size(stack_a);
+	get_index(stack_a, size + 1);
+	push_swap(&stack_a, &stack_b, size);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
