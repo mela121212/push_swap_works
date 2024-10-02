@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 19:48:11 by abertran          #+#    #+#             */
-/*   Updated: 2023/02/23 22:35:46 by abertran         ###   ########.fr       */
+/*   Created: 2024/10/02 11:02:19 by carmelag          #+#    #+#             */
+/*   Updated: 2024/10/02 11:02:22 by carmelag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-/*	Pushes the top element of src stack to the top of dest stack. DISTINTO*/
-/*tmp = *src;
-	tmp->next = *dst;
-	*dst = tmp;
-	*src = (*src)->next;*/
 static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;

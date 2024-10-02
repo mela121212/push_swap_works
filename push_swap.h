@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 18:14:42 by abertran          #+#    #+#             */
-/*   Updated: 2023/03/09 12:57:13 by abertran         ###   ########.fr       */
+/*   Created: 2024/10/02 10:57:41 by carmelag          #+#    #+#             */
+/*   Updated: 2024/10/02 10:57:43 by carmelag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
