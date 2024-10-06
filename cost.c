@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 10:53:07 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 10:53:16 by carmelag         ###   ########.fr       */
+/*   Created: 2023/02/23 19:01:19 by abertran          #+#    #+#             */
+/*   Updated: 2023/02/23 22:49:05 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -27,8 +26,8 @@ void	cost(t_stack **stack_a, t_stack **stack_b)
 
 	tmp_a = *stack_a;
 	tmp_b = *stack_b;
-	size_a = stack_size(tmp_a);
-	size_b = stack_size(tmp_b);
+	size_a = get_stack_size(tmp_a);
+	size_b = get_stack_size(tmp_b);
 	while (tmp_b)
 	{
 		tmp_b->cost_b = tmp_b->pos;

@@ -1,46 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 10:56:12 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 10:56:17 by carmelag         ###   ########.fr       */
+/*   Created: 2023/02/23 13:50:31 by abertran          #+#    #+#             */
+/*   Updated: 2023/02/23 19:37:55 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-/*static int	biggest_index(t_stack *stack)
-{
-	int	index;
-
-	index = stack->index;
-	while (stack)
-	{
-		if (stack->index > index)
-			index = stack->index;
-		stack = stack->next;
-	}
-	return (index);
-}
-
-void	sort_three(t_stack **stack)
-{
-	int	biggest;
-
-	if (is_sorted(*stack))
-		return ;
-	biggest = biggest_index(*stack);
-	if ((*stack)->index == biggest)
-		do_ra(stack);
-	else if ((*stack)->next->index == biggest)
-		do_rra(stack);
-	if ((*stack)->index > (*stack)->next->index)
-		do_sa(stack);
-}*/
 
 static t_stack *find_min(t_stack **stack_a)
 {

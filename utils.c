@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 11:01:26 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 11:01:31 by carmelag         ###   ########.fr       */
+/*   Created: 2023/02/16 15:37:38 by abertran          #+#    #+#             */
+/*   Updated: 2023/02/23 15:38:40 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
 /* Frees each element in a given stack and sets the stack pointer to NULL. 
 ???? porque lo pasamos como  doble puntero*/
 
-/*void	free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 
 {
 	t_stack	*tmp;
@@ -30,23 +29,6 @@
 		*stack = tmp;
 	}
 	*stack = NULL;
-}*/
-
-void	free_stack(t_stack **stack) //asegurate de los leaks con este
-{
-    t_stack *current;
-    t_stack *next_node;
-
-    if (stack == NULL || *stack == NULL)
-        return;
-    current = *stack;
-    while (current != NULL)
-    {
-        next_node = current->next;
-        free(current);
-        current = next_node;
-	}
-    *stack = NULL;
 }
 
 /*   Writes "Error\n" to the standard output after freeing stack a and b.
@@ -105,20 +87,9 @@ void	ft_putstr(char *str)
 /* Returns the absolute value of a number,ç
  which is the value without any sign consideration.*/
 
-int	absolute_value(int nb)
+int	abs(int nb)
 {
 	if (nb < 0)
 		return (nb * -1);
 	return (nb);
-}
-
-int	is_sorted(t_stack *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
 }

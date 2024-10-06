@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 10:56:28 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 10:56:31 by carmelag         ###   ########.fr       */
+/*   Created: 2023/02/23 19:01:19 by abertran          #+#    #+#             */
+/*   Updated: 2023/03/10 12:06:38 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -18,16 +17,16 @@
 
 static void	push_init(t_stack **stack_a, t_stack **stack_b)
 {
-	int	size;
+	int	stack_size;
 	int	pushes;
 	int	i;
 
-	size = stack_size(*stack_a);
+	stack_size = get_stack_size(*stack_a);
 	pushes = 0;
 	i = 0;
-	while (size > 6 && i < size && pushes < size / 2)
+	while (stack_size > 6 && i < stack_size && pushes < stack_size / 2)
 	{
-		if ((*stack_a)->index <= size / 2)
+		if ((*stack_a)->index <= stack_size / 2)
 		{
 			pb(stack_a, stack_b);
 			pushes++;
@@ -36,7 +35,7 @@ static void	push_init(t_stack **stack_a, t_stack **stack_b)
 			ra(stack_a);
 		i++;
 	}
-	while (size - pushes > 3)
+	while (stack_size - pushes > 3)
 	{
 		pb(stack_a, stack_b);
 		pushes++;
@@ -50,13 +49,13 @@ static void	push_init(t_stack **stack_a, t_stack **stack_b)
 static void	sort_stack(t_stack **stack_a)
 {
 	int	lowest_p;
-	int	size;
+	int	stack_size;
 
-	size = stack_size(*stack_a);
+	stack_size = get_stack_size(*stack_a);
 	lowest_p = position_lowest_index(stack_a);
-	if (lowest_p > size / 2)
+	if (lowest_p > stack_size / 2)
 	{
-		while (lowest_p < size)
+		while (lowest_p < stack_size)
 		{
 			rra(stack_a);
 			lowest_p++;

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   do_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 10:57:10 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 10:57:13 by carmelag         ###   ########.fr       */
+/*   Created: 2023/03/01 19:01:19 by abertran          #+#    #+#             */
+/*   Updated: 2023/02/23 22:49:05 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -35,7 +34,7 @@ static void	reverse_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	rotated, when one reaches 0, the stack has been rotated as far as possible
 	and the top position is correct. */
 
-static void	rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+static void rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a > 0 && *cost_b > 0)
 	{
@@ -81,7 +80,7 @@ static void	rotate_b(t_stack **b, int *cost)
 		}
 		else if (*cost < 0)
 		{
-			rb(b);
+			rrb(b);
 			(*cost)++;
 		}
 	}

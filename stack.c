@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmelag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 10:58:01 by carmelag          #+#    #+#             */
-/*   Updated: 2024/10/02 10:58:03 by carmelag         ###   ########.fr       */
+/*   Created: 2023/02/20 22:10:18 by abertran          #+#    #+#             */
+/*   Updated: 2023/02/23 18:34:18 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -46,25 +45,31 @@ void	stack_add(t_stack **stack, t_stack *new)
 		*stack = new;
 		return ;
 	}
-	bottom = get_tail(*stack);
+	bottom = get_bottom(*stack);
 	bottom->next = new;
 }
 
-t_stack *get_tail(t_stack *stack)
+/*	Returns the last element of the stack. */
+
+t_stack	*get_bottom(t_stack *stack)
 {
-    while (stack != NULL && (stack)->next != NULL)
-        stack = (stack)->next;
-    return(stack);
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
 }
 
-t_stack *before_tail(t_stack *stack)
-{
-    while (stack != NULL && (stack)->next->next != NULL)
-        stack = (stack)->next;
-    return(stack);
-}
+/* Returns de element before the bottom element */
 
-int	stack_size(t_stack	*stack)
+t_stack	*before_bottom(t_stack *stack)
+{
+	while (stack && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}	
+
+/*	Returns the number of elements in a stack. */
+
+int	get_stack_size(t_stack	*stack)
 {
 	int	size;
 
