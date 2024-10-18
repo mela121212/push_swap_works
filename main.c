@@ -30,9 +30,9 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2 && !is_sorted(*stack_a))
 		sa(stack_a);
-	else if (stack_size == 3)
-		sort_3(stack_a);
-	else if (stack_size > 3 && !is_sorted(*stack_a))
+	//else if (stack_size == 3)
+	//	sort_3(stack_a);
+	else if (stack_size > 2 && !is_sorted(*stack_a))
 		sort(stack_a, stack_b);
 }
 

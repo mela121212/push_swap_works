@@ -21,7 +21,7 @@ DARK_YELLOW =	\033[38;5;143m
 SRCS = main.c \
 		cost.c do_moves.c position.c \
 		push.c reverse_rotate.c \
-		split.c rotate.c sort_3.c sort.c \
+		split.c rotate.c sort.c \
 		stack.c start.c swap.c utils.c 
 
 INCLUDE = ./push_swap.h
