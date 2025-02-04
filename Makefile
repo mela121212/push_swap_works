@@ -22,7 +22,7 @@ SRCS = main.c \
 		cost.c do_moves.c position.c \
 		push.c reverse_rotate.c \
 		split.c rotate.c sort.c \
-		stack.c start.c swap.c utils.c 
+		stack_utils.c errors_and_init.c swap.c utils.c 
 
 INCLUDE = ./push_swap.h
 

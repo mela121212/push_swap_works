@@ -50,6 +50,31 @@ int	is_duplicate(t_stack *column)
 	return (0);
 }	
 
+void	fill_stack(char *av, t_stack **stack_a)
+{
+	char		**param;
+	long int	n;
+	int			i;
+
+	param = ft_split(av, ' ');
+	i = 0;
+	while (param[i] != NULL)
+	{
+		if (input_is_correct(param[i]))
+		{
+			n = ft_atoi(param[i]);
+			if (n > INT_MAX || n < INT_MIN)
+				error_exit(stack_a, NULL);
+			add_node(stack_a, create_node(n));
+		}
+		else
+			error_exit(NULL, NULL);
+		free(param[i]);
+		i++;
+	}
+	free(param);
+}
+
 /*	Assigns an index to each value in stack a. 
 *	The indexes are assigned from highest (stack_size) to lowest (1). */
 

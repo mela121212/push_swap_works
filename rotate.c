@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+/* The top element of the stack is sent to the bottom. */
+
 static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -19,10 +21,13 @@ static void	rotate(t_stack **stack)
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tail = get_tail(*stack);
+	tail = get_last_node(*stack);
 	tmp->next = NULL;
 	tail->next = tmp;
 }
+
+/*	Sends the top element of stack a to the bottom. 
+	Prints "ra" to the standard output */
 
 void	ra(t_stack **stack_a)
 {
@@ -30,11 +35,17 @@ void	ra(t_stack **stack_a)
 	ft_putstr("ra\n");
 }
 
+/*	Sends the top element of stack b to the bottom.
+	Prints "rb" to the standard output. */
+
 void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
 	ft_putstr("rb\n");
 }
+
+/* Sends the top element of both stack a and stack b to the bottom
+	of their stacks. Prints "rr" to the standard output. */
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {

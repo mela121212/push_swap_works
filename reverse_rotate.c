@@ -20,8 +20,8 @@ static void	rev_rotate(t_stack **stack)
 	t_stack	*tail;
 	t_stack	*new_tail;
 
-	tail = get_tail(*stack);
-	new_tail = before_tail(*stack);
+	tail = get_last_node(*stack);
+	new_tail = get_second_last_node(*stack);
 	tmp = *stack;
 	*stack = tail;
 	(*stack)->next = tmp;

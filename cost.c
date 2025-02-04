@@ -12,55 +12,60 @@
 
 #include "push_swap.h"
 
-/*	Calculates the cost of moving each element of stack B into the correct
-	position in stack A.
-	cost_b represents the cost of getting the element to the top.
-	cost_a represents the cost of getting to the right position in stack A. */
-
-void	cost(t_stack **stack_a, t_stack **stack_b)
+/* Calcula el costo de mover cada elemento de la pila B a su posición correcta en la pila A. */
+static void calculate_costs(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp_a;
-	t_stack	*tmp_b;
-	int		size_a;
-	int		size_b;
+    t_stack *tmp_b;
+    int size_a;
+    int size_b;
 
-	tmp_a = *stack_a;
-	tmp_b = *stack_b;
-	size_a = get_stack_size(tmp_a);
-	size_b = get_stack_size(tmp_b);
-	while (tmp_b)
-	{
-		tmp_b->cost_b = tmp_b->pos;
-		if (tmp_b->pos > size_b / 2)
-			tmp_b->cost_b = (size_b - tmp_b->pos) * -1;
-		tmp_b->cost_a = tmp_b->target;
-		if (tmp_b->target > size_a / 2)
-			tmp_b->cost_a = (size_a - tmp_b->target) * -1;
-		tmp_b = tmp_b->next;
-	}
+	size_a = get_stack_size(*stack_a);
+	size_b = get_stack_size(*stack_b);
+    tmp_b = *stack_b;
+    while (tmp_b)
+    {
+        // Coste de mover a la cima de B
+        tmp_b->cost_b = (tmp_b->pos > size_b / 2) ? (size_b - tmp_b->pos) * -1 : tmp_b->pos;
+
+        // Coste de mover a la posición objetivo en A
+        tmp_b->cost_a = (tmp_b->target > size_a / 2) ? (size_a - tmp_b->target) * -1 : tmp_b->target;
+
+        tmp_b = tmp_b->next;
+    }
 }
 
-/*	Finds the element in stack B with the cheapest cost to move to stack A
-	and moves it to the correct position in stack A. */
-
-void	cheapest_move(t_stack **stack_a, t_stack **stack_b)
+/* Encuentra el movimiento con el menor costo para mover de B a A */
+static t_stack *find_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack		*tmp;
-	int			cheapest;
-	int			cost_a;
-	int			cost_b;
+    t_stack *cheapest_node;
+    t_stack *tmp;
 
+	cheapest_node = NULL;
 	tmp = *stack_b;
-	cheapest = INT_MAX;
-	while (tmp)
-	{
-		if (abs(tmp->cost_a) + abs(tmp->cost_b) < cheapest)
-		{
-			cheapest = abs(tmp->cost_a) + abs(tmp->cost_b);
-			cost_a = tmp->cost_a;
-			cost_b = tmp->cost_b;
-		}
-		tmp = tmp->next;
-	}
-	do_move(stack_a, stack_b, cost_a, cost_b);
+	calculate_costs(stack_a, stack_b);
+    int cheapest_cost = INT_MAX;
+
+    while (tmp)
+    {
+        int total_cost = abs(tmp->cost_a) + abs(tmp->cost_b);
+        if (total_cost < cheapest_cost)
+        {
+            cheapest_cost = total_cost;
+            cheapest_node = tmp;
+        }
+        tmp = tmp->next;
+    }
+    return cheapest_node;
+}
+
+/* Mueve el elemento con el costo más bajo a su posición correcta en A */
+void cheapest_move(t_stack **stack_a, t_stack **stack_b)
+{
+    t_stack *cheapest_node;
+	
+	cheapest_node = find_cheapest_move(stack_a, stack_b);
+    if (cheapest_node)
+    {
+        do_move(stack_a, stack_b, cheapest_node->cost_a, cheapest_node->cost_b);
+    }
 }
