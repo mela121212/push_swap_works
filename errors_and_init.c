@@ -50,13 +50,13 @@ int	is_duplicate(t_stack *column)
 	return (0);
 }	
 
-void	fill_stack(char *av, t_stack **stack_a)
+void	fill_stack(char *argv, t_stack **stack_a)
 {
 	char		**param;
 	long int	n;
 	int			i;
 
-	param = ft_split(av, ' ');
+	param = ft_split(argv, ' ');
 	i = 0;
 	while (param[i] != NULL)
 	{
